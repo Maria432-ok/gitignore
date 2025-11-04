@@ -1,0 +1,21 @@
+import pandas as pd
+
+# --- PASO 1: CARGAR EL ARCHIVO CSV ---
+try:
+    df = pd.read_csv('vehicles_us.csv')
+    
+    print("✅ Archivo cargado exitosamente.")
+    print("-" * 30)
+
+    # --- PASO 2: REVISIÓN INICIAL DE DATOS ---
+    
+    # 2.1 Muestra la información general (tipos de datos y valores no nulos)
+    print("\nInformación de Tipos de Datos y Valores Nulos:")
+    df.info() 
+    
+    # 2.2 Revisa si hay valores faltantes (la suma de valores nulos por columna)
+    print("\nConteo de Valores Faltantes (NaN):")
+    print(df.isnull().sum())
+    
+except Exception as e:
+    print(f"❌ Ocurrió un error: {e}")
